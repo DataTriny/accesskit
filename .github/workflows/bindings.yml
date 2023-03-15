@@ -1,0 +1,89 @@
+on:
+  release:
+    types:
+      - published
+name: Publish bindings
+jobs:
+  build-binaries:
+    if: startsWith(github.ref, 'refs/tags/accesskit_c-v')
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          #- os: macOS-latest
+          #  target: x86_64-apple-darwin
+          #  path: darwin-x86_64
+          #- os: windows-2019
+          #  target: i686-pc-windows-msvc
+          #  path: win-x86
+          #- os: windows-2019
+          #  target: x86_64-pc-windows-msvc
+          #  path: win-x86_64
+          - os: ubuntu-latest
+            target: i686-unknown-linux-gnu
+            path: linux-x86
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+            path: linux-x86_64
+    name: cargo build
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: install stable toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: ${{ matrix.target }}
+          profile: minimal
+          override: true
+
+      - name: cargo build
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --package accesskit_c --release
+
+      - name: Upload binary and header files
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.target }}
+          path: |
+            target/release/*.a
+            target/release/*.dll
+            target/release/*.dylib
+            target/release/*.lib
+            target/release/*.so
+
+  gen-headers-and-publish:
+    needs: build-binaries
+    runs-on: ubuntu-latest
+    name: Generate headers and publish
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          path: accesskit_c/lib
+
+      - uses: actions/checkout@v2
+
+      - name: install nightly toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: nightly
+          profile: minimal
+          override: true
+
+      - uses: dtolnay/install@master
+        with:
+          crate: cbindgen
+      - run: mkdir -p accesskit_c/include
+      - run: cbindgen --lang c bindings/c > accesskit_c/include/accesskit.h
+
+      - run: cp bindings/c/*.md accesskit_c/
+      - run: cp LICENSE* accesskit_c
+      - run: mv accesskit_c ${{ github.ref }}
+      - run: ${{ github.ref }}.zip ${{ github.ref }}
+
+      - uses: shogo82148/actions-upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ${{ github.ref }}.zip

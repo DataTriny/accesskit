@@ -19,3 +19,4 @@ target
 #KDE
 .directory
 
+bindings/*/target

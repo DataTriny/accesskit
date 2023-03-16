@@ -1,0 +1,2 @@
+cl /I../../src /c hello_world.c
+link /NOLOGO /SUBSYSTEM:CONSOLE hello_world.obj ../../../..target\release\accesskit.lib advapi32.lib bcrypt.lib kernel32.lib ole32.lib oleaut32.lib shell32.lib uiautomationcore.lib user32.lib userenv.lib winspool.lib ws2_32.lib

@@ -1,5 +1,33 @@
 # Changelog
 
+## [0.8.1](https://github.com/DataTriny/accesskit/compare/accesskit-v0.10.1...accesskit-v0.8.1) (2023-03-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* Move thread synchronization into platform adapters; drop parking_lot ([#212](https://github.com/DataTriny/accesskit/issues/212))
+* Make `Node` opaque and optimize it for size ([#205](https://github.com/DataTriny/accesskit/issues/205))
+
+### Features
+
+* Test CI ([b4af465](https://github.com/DataTriny/accesskit/commit/b4af4656917062a25c918ecc62855486eaa9ca67))
+
+
+### Bug Fixes
+
+* Set appropriate representations on all public types that will be exposed via FFI ([54e82f6](https://github.com/DataTriny/accesskit/commit/54e82f673f5c7b46d9077fe5f946305800862bf0))
+
+
+### Documentation
+
+* Fix outdated documentation for `TreeUpdate` ([#182](https://github.com/DataTriny/accesskit/issues/182)) ([dd658c7](https://github.com/DataTriny/accesskit/commit/dd658c70df55b2234a0346220362b0b9a40bb41d))
+
+
+### Code Refactoring
+
+* Make `Node` opaque and optimize it for size ([#205](https://github.com/DataTriny/accesskit/issues/205)) ([4811152](https://github.com/DataTriny/accesskit/commit/48111521439b76c1a8687418a4b20f9b705eac6d))
+* Move thread synchronization into platform adapters; drop parking_lot ([#212](https://github.com/DataTriny/accesskit/issues/212)) ([5df52e5](https://github.com/DataTriny/accesskit/commit/5df52e5545faddf6a51905409013c2f5be23981e))
+
 ## [0.10.1](https://github.com/AccessKit/accesskit/compare/accesskit-v0.10.0...accesskit-v0.10.1) (2023-02-20)
 
 

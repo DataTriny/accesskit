@@ -44,6 +44,49 @@
   * dependencies
     * accesskit_macos bumped from 0.6.1 to 0.6.2
 
+## [0.13.0](https://github.com/DataTriny/accesskit/compare/accesskit_winit-v0.12.4...accesskit_winit-v0.13.0) (2023-03-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* Move thread synchronization into platform adapters; drop parking_lot ([#212](https://github.com/DataTriny/accesskit/issues/212))
+* Make `Node` opaque and optimize it for size ([#205](https://github.com/DataTriny/accesskit/issues/205))
+* Update winit to 0.28 ([#207](https://github.com/DataTriny/accesskit/issues/207))
+* Move lazy initialization from the core platform adapter to the caller ([#179](https://github.com/DataTriny/accesskit/issues/179))
+
+### Features
+
+* Basic Unix platform adapter ([#198](https://github.com/DataTriny/accesskit/issues/198)) ([1cea32e](https://github.com/DataTriny/accesskit/commit/1cea32e44ee743b778ac941ceff9087ae745cb37))
+* Feature-gate the Unix adapter in accesskit_winit ([#214](https://github.com/DataTriny/accesskit/issues/214)) ([be95807](https://github.com/DataTriny/accesskit/commit/be95807dda64f2a49b4d20cc9084b14a7aa2844e))
+
+
+### Bug Fixes
+
+* Don't force winit's X11 and Wayland features to be enabled ([#209](https://github.com/DataTriny/accesskit/issues/209)) ([a3ed357](https://github.com/DataTriny/accesskit/commit/a3ed35754ad8f69a8ed54adacc30b6d57c19329a))
+* Reduce the winit version requirement to match egui ([#170](https://github.com/DataTriny/accesskit/issues/170)) ([1d27482](https://github.com/DataTriny/accesskit/commit/1d27482221140c1f3b3e3eaf93e7feaf8105611d))
+
+
+### Miscellaneous Chores
+
+* Update winit to 0.28 ([#207](https://github.com/DataTriny/accesskit/issues/207)) ([3ff0cf5](https://github.com/DataTriny/accesskit/commit/3ff0cf59f982af504499142a3804f7aeeb4defe0))
+
+
+### Code Refactoring
+
+* Make `Node` opaque and optimize it for size ([#205](https://github.com/DataTriny/accesskit/issues/205)) ([4811152](https://github.com/DataTriny/accesskit/commit/48111521439b76c1a8687418a4b20f9b705eac6d))
+* Move lazy initialization from the core platform adapter to the caller ([#179](https://github.com/DataTriny/accesskit/issues/179)) ([f35c941](https://github.com/DataTriny/accesskit/commit/f35c941f395f3162db376a69cfaaaf770d376267))
+* Move thread synchronization into platform adapters; drop parking_lot ([#212](https://github.com/DataTriny/accesskit/issues/212)) ([5df52e5](https://github.com/DataTriny/accesskit/commit/5df52e5545faddf6a51905409013c2f5be23981e))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * accesskit bumped from 0.10.1 to 0.8.1
+    * accesskit_windows bumped from 0.13.2 to 0.14.0
+    * accesskit_macos bumped from 0.6.2 to 0.7.0
+    * accesskit_unix bumped from 0.3.2 to 0.4.0
+
 ## [0.12.0](https://github.com/AccessKit/accesskit/compare/accesskit_winit-v0.11.0...accesskit_winit-v0.12.0) (2023-02-18)
 
 

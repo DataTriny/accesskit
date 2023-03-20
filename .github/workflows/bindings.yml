@@ -1,0 +1,83 @@
+on:
+  release:
+    types:
+      - published
+name: Publish bindings
+jobs:
+  build-binaries:
+    if: startsWith(github.ref_name, 'accesskit_c-v')
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: macOS-latest
+            target: x86_64-apple-darwin
+            path: darwin-x86_64
+          - os: windows-2019
+            target: i686-pc-windows-msvc
+            path: win-x86
+          - os: windows-2019
+            target: x86_64-pc-windows-msvc
+            path: win-x86_64
+          - os: ubuntu-latest
+            target: i686-unknown-linux-gnu
+            path: linux-x86
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+            path: linux-x86_64
+    name: cargo build
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: install stable toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: ${{ matrix.target }}
+          profile: minimal
+          override: true
+
+      - name: cargo build
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --package accesskit_c --release
+
+      - name: Upload binaries
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.path }}
+          path: |
+            target/release/*.a
+            target/release/*.dll
+            target/release/*.dylib
+            target/release/*.lib
+            !target/release/*.dll.lib
+            target/release/*.so
+
+  generate-headers:
+    if: startsWith(github.ref_name, 'accesskit_c-v')
+    uses: DataTriny/accesskit/.github/workflows/generate-headers.yml@main
+
+  publish:
+    needs: [build-binaries, generate-headers]
+    runs-on: ubuntu-latest
+    name: Publish
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/download-artifact@v3
+        with:
+          path: accesskit_c/lib
+
+      - run: mv accesskit_c/lib/headers accesskit_c/include
+      - run: cp bindings/c/*.md accesskit_c/
+      - run: cp LICENSE* accesskit_c/
+      - run: mv accesskit_c ${{ github.ref_name }}
+      - run: zip -r ${{ github.ref_name }}.zip ${{ github.ref_name }}
+
+      - uses: AButler/upload-release-assets@v2.0
+        with:
+          files: ${{ github.ref_name }}.zip
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          release-tag: ${{ github.ref_name }}

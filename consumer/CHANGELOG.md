@@ -4,6 +4,39 @@
   * dependencies
     * accesskit bumped from 0.10.0 to 0.10.1
 
+## [0.15.0](https://github.com/DataTriny/accesskit/compare/accesskit_consumer-v0.14.1...accesskit_consumer-v0.15.0) (2023-03-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* Move thread synchronization into platform adapters; drop parking_lot ([#212](https://github.com/DataTriny/accesskit/issues/212))
+* Make `Node` opaque and optimize it for size ([#205](https://github.com/DataTriny/accesskit/issues/205))
+
+### Features
+
+* Automatically get button and link labels from descendants ([#184](https://github.com/DataTriny/accesskit/issues/184)) ([ec5c38e](https://github.com/DataTriny/accesskit/commit/ec5c38ef3001a10b7a135df1438901246463f3e1))
+* Basic Unix platform adapter ([#198](https://github.com/DataTriny/accesskit/issues/198)) ([1cea32e](https://github.com/DataTriny/accesskit/commit/1cea32e44ee743b778ac941ceff9087ae745cb37))
+* Text support on macOS ([#191](https://github.com/DataTriny/accesskit/issues/191)) ([3a35dbe](https://github.com/DataTriny/accesskit/commit/3a35dbe02122c789fe682995c5b7e022aef5cc36))
+
+
+### Bug Fixes
+
+* Make `Node::filtered_parent` recursive as it was meant to be ([#203](https://github.com/DataTriny/accesskit/issues/203)) ([d2faef5](https://github.com/DataTriny/accesskit/commit/d2faef5a2ad61b9e4d3f3d5c89570cdeec6fe6e6))
+* More reliable handling of the edge case for wrapped lines ([#192](https://github.com/DataTriny/accesskit/issues/192)) ([c626d2c](https://github.com/DataTriny/accesskit/commit/c626d2c3028085b076ada7dd31242cf3ca3c0f08))
+
+
+### Code Refactoring
+
+* Make `Node` opaque and optimize it for size ([#205](https://github.com/DataTriny/accesskit/issues/205)) ([4811152](https://github.com/DataTriny/accesskit/commit/48111521439b76c1a8687418a4b20f9b705eac6d))
+* Move thread synchronization into platform adapters; drop parking_lot ([#212](https://github.com/DataTriny/accesskit/issues/212)) ([5df52e5](https://github.com/DataTriny/accesskit/commit/5df52e5545faddf6a51905409013c2f5be23981e))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * accesskit bumped from 0.10.1 to 0.8.1
+
 ## [0.14.0](https://github.com/AccessKit/accesskit/compare/accesskit_consumer-v0.13.0...accesskit_consumer-v0.14.0) (2023-02-12)
 
 

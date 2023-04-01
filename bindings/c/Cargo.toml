@@ -25,3 +25,13 @@ accesskit_macos = { version = "0.7.0", path = "../../platforms/macos" }
 
 [target.'cfg(any(target_os = "linux", target_os = "dragonfly", target_os = "freebsd", target_os = "openbsd", target_os = "netbsd"))'.dependencies]
 accesskit_unix = { version = "0.4.0", path = "../../platforms/unix" }
+
+[target.aarch64-apple-darwin]
+rustflags = [
+  "-C", "link-arg=-Wl,-install_name,@rpath/libaccesskit.dylib",
+]
+
+[target.x86_64-apple-darwin]
+rustflags = [
+  "-C", "link-arg=-Wl,-install_name,@rpath/libaccesskit.dylib",
+]

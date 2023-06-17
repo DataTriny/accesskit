@@ -10,6 +10,35 @@
   * dependencies
     * accesskit_unix bumped from 0.4.0 to 0.5.0
 
+## [0.4.0](https://github.com/DataTriny/accesskit/compare/accesskit_c-v0.3.1...accesskit_c-v0.4.0) (2023-06-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* Remove objc and Core Foundation types from C bindings public API ([#243](https://github.com/DataTriny/accesskit/issues/243))
+* Improve C bindings package directory structure ([#239](https://github.com/DataTriny/accesskit/issues/239))
+
+### Features
+
+* Add C bindings ([#230](https://github.com/DataTriny/accesskit/issues/230)) ([7f7f4c7](https://github.com/DataTriny/accesskit/commit/7f7f4c755890ab8210a5a8bf8e237ba6a51dd205))
+* Add CMake support to C bindings ([ee358a3](https://github.com/DataTriny/accesskit/commit/ee358a3c9dfa27d99e79da220e85e749bc0ee6ae))
+
+
+### Bug Fixes
+
+* Improve C bindings package directory structure ([#239](https://github.com/DataTriny/accesskit/issues/239)) ([44c27e7](https://github.com/DataTriny/accesskit/commit/44c27e76f242154a44d907ac4ca0a35bf807caaf))
+* Remove objc and Core Foundation types from C bindings public API ([#243](https://github.com/DataTriny/accesskit/issues/243)) ([3ae1c11](https://github.com/DataTriny/accesskit/commit/3ae1c116abcf4593c8540f0d25d154828a69a388))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * accesskit bumped from 0.11.0 to 0.8.1
+    * accesskit_windows bumped from 0.14.0 to 0.15.0
+    * accesskit_macos bumped from 0.7.0 to 0.8.0
+    * accesskit_unix bumped from 0.5.0 to 0.6.0
+
 ## [0.3.0](https://github.com/AccessKit/accesskit/compare/accesskit_c-v0.2.0...accesskit_c-v0.3.0) (2023-04-25)
 
 

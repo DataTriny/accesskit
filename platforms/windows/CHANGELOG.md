@@ -18,6 +18,46 @@
     * accesskit bumped from 0.10.1 to 0.11.0
     * accesskit_consumer bumped from 0.14.1 to 0.14.2
 
+## [0.15.0](https://github.com/DataTriny/accesskit/compare/accesskit_windows-v0.14.0...accesskit_windows-v0.15.0) (2023-06-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* Force a semver-breaking version bump in downstream crates ([#234](https://github.com/DataTriny/accesskit/issues/234))
+* Move thread synchronization into platform adapters; drop parking_lot ([#212](https://github.com/DataTriny/accesskit/issues/212))
+* Make `Node` opaque and optimize it for size ([#205](https://github.com/DataTriny/accesskit/issues/205))
+* Update winit to 0.28 ([#207](https://github.com/DataTriny/accesskit/issues/207))
+* Move lazy initialization from the core platform adapter to the caller ([#179](https://github.com/DataTriny/accesskit/issues/179))
+
+### Bug Fixes
+
+* Correct broken UIA method implementation that was incompatible with Windows 11 ATs ([#193](https://github.com/DataTriny/accesskit/issues/193)) ([3c527c7](https://github.com/DataTriny/accesskit/commit/3c527c76cb4139402d2b5550d2eb1ad12e07ebe5))
+* Fix Windows 32-bit build errors ([#223](https://github.com/DataTriny/accesskit/issues/223)) ([41f28b6](https://github.com/DataTriny/accesskit/commit/41f28b670ac457b2d067bbc4ba40aa0fc8842e4d))
+* Force a semver-breaking version bump in downstream crates ([#234](https://github.com/DataTriny/accesskit/issues/234)) ([773389b](https://github.com/DataTriny/accesskit/commit/773389bff857fa18edf15de426e029251fc34591))
+* More reliable handling of the edge case for wrapped lines ([#192](https://github.com/DataTriny/accesskit/issues/192)) ([c626d2c](https://github.com/DataTriny/accesskit/commit/c626d2c3028085b076ada7dd31242cf3ca3c0f08))
+* Provide fallback property implementations for the window root ([#194](https://github.com/DataTriny/accesskit/issues/194)) ([f3d30b9](https://github.com/DataTriny/accesskit/commit/f3d30b9ba2f66e08fb7f78c304ab8a9e83e1aeca))
+* Update windows-rs to 0.44 ([#220](https://github.com/DataTriny/accesskit/issues/220)) ([a6b0a12](https://github.com/DataTriny/accesskit/commit/a6b0a124e7511e37760d769b517fd5fc9050160b))
+
+
+### Miscellaneous Chores
+
+* Update winit to 0.28 ([#207](https://github.com/DataTriny/accesskit/issues/207)) ([3ff0cf5](https://github.com/DataTriny/accesskit/commit/3ff0cf59f982af504499142a3804f7aeeb4defe0))
+
+
+### Code Refactoring
+
+* Make `Node` opaque and optimize it for size ([#205](https://github.com/DataTriny/accesskit/issues/205)) ([4811152](https://github.com/DataTriny/accesskit/commit/48111521439b76c1a8687418a4b20f9b705eac6d))
+* Move lazy initialization from the core platform adapter to the caller ([#179](https://github.com/DataTriny/accesskit/issues/179)) ([f35c941](https://github.com/DataTriny/accesskit/commit/f35c941f395f3162db376a69cfaaaf770d376267))
+* Move thread synchronization into platform adapters; drop parking_lot ([#212](https://github.com/DataTriny/accesskit/issues/212)) ([5df52e5](https://github.com/DataTriny/accesskit/commit/5df52e5545faddf6a51905409013c2f5be23981e))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * accesskit bumped from 0.11.0 to 0.8.1
+    * accesskit_consumer bumped from 0.15.0 to 0.16.0
+
 ## [0.14.0](https://github.com/AccessKit/accesskit/compare/accesskit_windows-v0.13.3...accesskit_windows-v0.14.0) (2023-03-30)
 
 

@@ -65,4 +65,4 @@ jobs:
           command: test
 
   generate-headers:
-    uses: AccessKit/accesskit/.github/workflows/generate-headers.yml@main
+    uses: DataTriny/accesskit/.github/workflows/generate-headers.yml@main

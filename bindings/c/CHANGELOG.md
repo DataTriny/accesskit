@@ -14,6 +14,43 @@
   * dependencies
     * accesskit_macos bumped from 0.7.0 to 0.7.1
 
+## [0.5.0](https://github.com/DataTriny/accesskit/compare/accesskit_c-v0.4.0...accesskit_c-v0.5.0) (2023-08-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* New C API for tree updates ([#263](https://github.com/DataTriny/accesskit/issues/263))
+* Remove objc and Core Foundation types from C bindings public API ([#243](https://github.com/DataTriny/accesskit/issues/243))
+* Improve C bindings package directory structure ([#239](https://github.com/DataTriny/accesskit/issues/239))
+
+### Features
+
+* Add C bindings ([#230](https://github.com/DataTriny/accesskit/issues/230)) ([7f7f4c7](https://github.com/DataTriny/accesskit/commit/7f7f4c755890ab8210a5a8bf8e237ba6a51dd205))
+* Add CMake support to C bindings ([#247](https://github.com/DataTriny/accesskit/issues/247)) ([3f556c9](https://github.com/DataTriny/accesskit/commit/3f556c995e8c5eae6831a89b0173809134c1b4e7))
+* Add window-based constructor to macOS subclassing adapter ([#253](https://github.com/DataTriny/accesskit/issues/253)) ([022ef04](https://github.com/DataTriny/accesskit/commit/022ef045b9f28262b738ee1ca29a4c7303061fb3))
+* Workaround for libraries that put the macOS keyboard focus on the window rather than the content view ([#266](https://github.com/DataTriny/accesskit/issues/266)) ([c2db1b0](https://github.com/DataTriny/accesskit/commit/c2db1b0424e905d87691f8148f28b77405f29926))
+
+
+### Bug Fixes
+
+* Improve C bindings package directory structure ([#239](https://github.com/DataTriny/accesskit/issues/239)) ([44c27e7](https://github.com/DataTriny/accesskit/commit/44c27e76f242154a44d907ac4ca0a35bf807caaf))
+* Remove objc and Core Foundation types from C bindings public API ([#243](https://github.com/DataTriny/accesskit/issues/243)) ([3ae1c11](https://github.com/DataTriny/accesskit/commit/3ae1c116abcf4593c8540f0d25d154828a69a388))
+
+
+### Code Refactoring
+
+* New C API for tree updates ([#263](https://github.com/DataTriny/accesskit/issues/263)) ([b260a86](https://github.com/DataTriny/accesskit/commit/b260a860e6f47cf7ef4e10c407123d91c5b35297))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * accesskit bumped from 0.11.1 to 0.8.1
+    * accesskit_windows bumped from 0.14.1 to 0.15.0
+    * accesskit_macos bumped from 0.8.0 to 0.9.0
+    * accesskit_unix bumped from 0.5.1 to 0.6.0
+
 ## [0.4.0](https://github.com/AccessKit/accesskit/compare/accesskit_c-v0.3.2...accesskit_c-v0.4.0) (2023-07-30)
 
 

@@ -29,6 +29,59 @@
   * dependencies
     * accesskit_unix bumped from 0.6.1 to 0.6.2
 
+## [0.7.0](https://github.com/DataTriny/accesskit/compare/accesskit_c-v0.6.2...accesskit_c-v0.7.0) (2023-12-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* Allow providing app_name, toolkit_name and toolkit_version in Tree, remove parameters from unix adapter constructor ([#291](https://github.com/DataTriny/accesskit/issues/291))
+* Make `ActionHandler::do_action` take `&mut self` ([#296](https://github.com/DataTriny/accesskit/issues/296))
+* Clean up roles and properties ([#289](https://github.com/DataTriny/accesskit/issues/289))
+* Drop next/previous focus properties ([#288](https://github.com/DataTriny/accesskit/issues/288))
+* Drop `Tree::root_scroller` ([#279](https://github.com/DataTriny/accesskit/issues/279))
+* Decouple in-tree focus from host window/view focus ([#278](https://github.com/DataTriny/accesskit/issues/278))
+* Switch to simple unsigned 64-bit integer for node IDs ([#276](https://github.com/DataTriny/accesskit/issues/276))
+* New C API for tree updates ([#263](https://github.com/DataTriny/accesskit/issues/263))
+* Remove objc and Core Foundation types from C bindings public API ([#243](https://github.com/DataTriny/accesskit/issues/243))
+* Improve C bindings package directory structure ([#239](https://github.com/DataTriny/accesskit/issues/239))
+
+### Features
+
+* Add an SDL example to the C bindings ([#250](https://github.com/DataTriny/accesskit/issues/250)) ([1f5cd1f](https://github.com/DataTriny/accesskit/commit/1f5cd1f7a94a762edeb73188f0ab4fd352c36b3d))
+* Add C bindings ([#230](https://github.com/DataTriny/accesskit/issues/230)) ([7f7f4c7](https://github.com/DataTriny/accesskit/commit/7f7f4c755890ab8210a5a8bf8e237ba6a51dd205))
+* Add CMake support to C bindings ([#247](https://github.com/DataTriny/accesskit/issues/247)) ([3f556c9](https://github.com/DataTriny/accesskit/commit/3f556c995e8c5eae6831a89b0173809134c1b4e7))
+* Add Python bindings ([3bf0a79](https://github.com/DataTriny/accesskit/commit/3bf0a7964ac7d3879c442cac23dbbb5a14d4c0ac))
+* Add window-based constructor to macOS subclassing adapter ([#253](https://github.com/DataTriny/accesskit/issues/253)) ([022ef04](https://github.com/DataTriny/accesskit/commit/022ef045b9f28262b738ee1ca29a4c7303061fb3))
+* Allow providing app_name, toolkit_name and toolkit_version in Tree, remove parameters from unix adapter constructor ([#291](https://github.com/DataTriny/accesskit/issues/291)) ([5313860](https://github.com/DataTriny/accesskit/commit/531386023257150f49b5e4be942f359855fb7cb6))
+* Workaround for libraries that put the macOS keyboard focus on the window rather than the content view ([#266](https://github.com/DataTriny/accesskit/issues/266)) ([c2db1b0](https://github.com/DataTriny/accesskit/commit/c2db1b0424e905d87691f8148f28b77405f29926))
+
+
+### Bug Fixes
+
+* Drop `Tree::root_scroller` ([#279](https://github.com/DataTriny/accesskit/issues/279)) ([fc6c4e0](https://github.com/DataTriny/accesskit/commit/fc6c4e0091d5b257a3869a468fca144a1453cebc))
+* Drop next/previous focus properties ([#288](https://github.com/DataTriny/accesskit/issues/288)) ([d35c7c1](https://github.com/DataTriny/accesskit/commit/d35c7c149a650dfedf1b031c0668adad585659fa))
+* Improve C bindings package directory structure ([#239](https://github.com/DataTriny/accesskit/issues/239)) ([44c27e7](https://github.com/DataTriny/accesskit/commit/44c27e76f242154a44d907ac4ca0a35bf807caaf))
+* Remove objc and Core Foundation types from C bindings public API ([#243](https://github.com/DataTriny/accesskit/issues/243)) ([3ae1c11](https://github.com/DataTriny/accesskit/commit/3ae1c116abcf4593c8540f0d25d154828a69a388))
+
+
+### Code Refactoring
+
+* Clean up roles and properties ([#289](https://github.com/DataTriny/accesskit/issues/289)) ([4fc9c55](https://github.com/DataTriny/accesskit/commit/4fc9c55c91812472593923d93ff89d75ff305ee4))
+* Decouple in-tree focus from host window/view focus ([#278](https://github.com/DataTriny/accesskit/issues/278)) ([d360d20](https://github.com/DataTriny/accesskit/commit/d360d20cf951e7643b81a5303006c9f7daa5bd56))
+* Make `ActionHandler::do_action` take `&mut self` ([#296](https://github.com/DataTriny/accesskit/issues/296)) ([4fc7846](https://github.com/DataTriny/accesskit/commit/4fc7846d732d61fb45c023060ebab96801a0053e))
+* New C API for tree updates ([#263](https://github.com/DataTriny/accesskit/issues/263)) ([b260a86](https://github.com/DataTriny/accesskit/commit/b260a860e6f47cf7ef4e10c407123d91c5b35297))
+* Switch to simple unsigned 64-bit integer for node IDs ([#276](https://github.com/DataTriny/accesskit/issues/276)) ([3eadd48](https://github.com/DataTriny/accesskit/commit/3eadd48ec47854faa94a94ebf910ec08f514642f))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * accesskit bumped from 0.12.1 to 0.8.1
+    * accesskit_windows bumped from 0.15.1 to 0.16.0
+    * accesskit_macos bumped from 0.10.1 to 0.11.0
+    * accesskit_unix bumped from 0.6.2 to 0.7.0
+
 ## [0.6.0](https://github.com/AccessKit/accesskit/compare/accesskit_c-v0.5.1...accesskit_c-v0.6.0) (2023-09-27)
 
 

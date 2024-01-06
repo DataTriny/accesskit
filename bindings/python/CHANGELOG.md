@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.2.0](https://github.com/DataTriny/accesskit/compare/accesskit_python-v0.1.0...accesskit_python-v0.2.0) (2024-01-06)
+
+
+### Features
+
+* Test ([9306865](https://github.com/DataTriny/accesskit/commit/9306865a15ab7031a453a293ba9d6d3f456e846f))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * accesskit bumped from 0.12.2 to 0.8.1
+    * accesskit_windows bumped from 0.16.0 to 0.17.0
+    * accesskit_macos bumped from 0.11.0 to 0.12.0
+    * accesskit_unix bumped from 0.7.0 to 0.8.0
+
 ## 0.1.0 (2024-01-03)
 
 

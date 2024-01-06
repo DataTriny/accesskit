@@ -1,11 +1,12 @@
 on:
-  release:
-    types:
-      - published
-name: Publish bindings
+  push:
+    tags:
+      - 'accesskit_c-v*'
+
+name: Publish C bindings
+
 jobs:
   build-binaries:
-    if: startsWith(github.ref_name, 'accesskit_c-v')
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -61,10 +62,10 @@ jobs:
 
       - name: build libraries
         run: |
-          ${{ matrix.setup-step || '' }}
-          cmake -S bindings/c -B build -DACCESSKIT_BUILD_HEADERS=OFF -DRust_CARGO_TARGET=${{ matrix.target }} ${{ matrix.cmake-options || '' }} ${{ !contains(matrix.target, 'msvc') && '-DCMAKE_BUILD_TYPE=Release' || '' }}
-          cmake --build build ${{ contains(matrix.target, 'msvc') && '--config Release' || '' }}
-          cmake --install build ${{ contains(matrix.target, 'msvc') && '--config Release' || '' }}
+          ${{ matrix.setup-step }}
+          cmake -S bindings/c -B build -DACCESSKIT_BUILD_HEADERS=OFF -DRust_CARGO_TARGET=${{ matrix.target }} ${{ matrix.cmake-options }} ${{ !contains(matrix.target, 'msvc') && '-DCMAKE_BUILD_TYPE=Release' }}
+          cmake --build build ${{ contains(matrix.target, 'msvc') && '--config Release' }}
+          cmake --install build ${{ contains(matrix.target, 'msvc') && '--config Release' }}
 
       - name: Upload binaries
         uses: actions/upload-artifact@v3
@@ -73,7 +74,6 @@ jobs:
           path: bindings/c/lib
 
   generate-headers:
-    if: startsWith(github.ref_name, 'accesskit_c-v')
     uses: AccessKit/accesskit/.github/workflows/generate-headers.yml@main
 
   publish:

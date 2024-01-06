@@ -8,17 +8,17 @@ members = [
     "platforms/windows",
     "platforms/winit",
     "bindings/c",
+    "bindings/python",
 ]
 default-members = [
     "common",
     "consumer",
     "platforms/winit",
     "bindings/c",
+    "bindings/python",
 ]
 
 [profile.release]
 lto = true
-panic = "abort"
-debug = true
 opt-level = "z"
 codegen-units = 1

@@ -28,6 +28,67 @@
     * accesskit bumped from 0.11.1 to 0.11.2
     * accesskit_consumer bumped from 0.15.1 to 0.15.2
 
+## [0.17.0](https://github.com/DataTriny/accesskit/compare/accesskit_windows-v0.16.0...accesskit_windows-v0.17.0) (2024-01-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* Allow providing app_name, toolkit_name and toolkit_version in Tree, remove parameters from unix adapter constructor ([#291](https://github.com/DataTriny/accesskit/issues/291))
+* Make `ActionHandler::do_action` take `&mut self` ([#296](https://github.com/DataTriny/accesskit/issues/296))
+* Clean up roles and properties ([#289](https://github.com/DataTriny/accesskit/issues/289))
+* Decouple in-tree focus from host window/view focus ([#278](https://github.com/DataTriny/accesskit/issues/278))
+* Switch to simple unsigned 64-bit integer for node IDs ([#276](https://github.com/DataTriny/accesskit/issues/276))
+* Force a semver-breaking version bump in downstream crates ([#234](https://github.com/DataTriny/accesskit/issues/234))
+* Move thread synchronization into platform adapters; drop parking_lot ([#212](https://github.com/DataTriny/accesskit/issues/212))
+* Make `Node` opaque and optimize it for size ([#205](https://github.com/DataTriny/accesskit/issues/205))
+* Update winit to 0.28 ([#207](https://github.com/DataTriny/accesskit/issues/207))
+* Move lazy initialization from the core platform adapter to the caller ([#179](https://github.com/DataTriny/accesskit/issues/179))
+
+### Features
+
+* Add role for terminals ([#282](https://github.com/DataTriny/accesskit/issues/282)) ([ddbef37](https://github.com/DataTriny/accesskit/commit/ddbef37158b57f56217317b480e40d58f83a9c24))
+* Allow providing app_name, toolkit_name and toolkit_version in Tree, remove parameters from unix adapter constructor ([#291](https://github.com/DataTriny/accesskit/issues/291)) ([5313860](https://github.com/DataTriny/accesskit/commit/531386023257150f49b5e4be942f359855fb7cb6))
+* Support custom role descriptions ([#316](https://github.com/DataTriny/accesskit/issues/316)) ([c8d1a56](https://github.com/DataTriny/accesskit/commit/c8d1a5638fa6c33adfa059815c04f7e043c56026))
+
+
+### Bug Fixes
+
+* Correct broken UIA method implementation that was incompatible with Windows 11 ATs ([#193](https://github.com/DataTriny/accesskit/issues/193)) ([3c527c7](https://github.com/DataTriny/accesskit/commit/3c527c76cb4139402d2b5550d2eb1ad12e07ebe5))
+* Fix Windows 32-bit build errors ([#223](https://github.com/DataTriny/accesskit/issues/223)) ([41f28b6](https://github.com/DataTriny/accesskit/commit/41f28b670ac457b2d067bbc4ba40aa0fc8842e4d))
+* Force a semver-breaking version bump in downstream crates ([#234](https://github.com/DataTriny/accesskit/issues/234)) ([773389b](https://github.com/DataTriny/accesskit/commit/773389bff857fa18edf15de426e029251fc34591))
+* Make the test focus event handler thread-safe again ([#306](https://github.com/DataTriny/accesskit/issues/306)) ([bb479c6](https://github.com/DataTriny/accesskit/commit/bb479c69bddff77a1102549a7ff6ea5c7155d90d))
+* Make the Windows subclassing test more robust ([#308](https://github.com/DataTriny/accesskit/issues/308)) ([0078f79](https://github.com/DataTriny/accesskit/commit/0078f7997f11a3bb1f3c33dc7a91f427b1a60db8))
+* More reliable handling of the edge case for wrapped lines ([#192](https://github.com/DataTriny/accesskit/issues/192)) ([c626d2c](https://github.com/DataTriny/accesskit/commit/c626d2c3028085b076ada7dd31242cf3ca3c0f08))
+* Provide fallback property implementations for the window root ([#194](https://github.com/DataTriny/accesskit/issues/194)) ([f3d30b9](https://github.com/DataTriny/accesskit/commit/f3d30b9ba2f66e08fb7f78c304ab8a9e83e1aeca))
+* Support text fields without a value property ([#274](https://github.com/DataTriny/accesskit/issues/274)) ([5ae557b](https://github.com/DataTriny/accesskit/commit/5ae557b40d395b4a9966a90a2d80e7d97ad50bf9))
+* Update windows crate to v0.48 ([#257](https://github.com/DataTriny/accesskit/issues/257)) ([cc703ed](https://github.com/DataTriny/accesskit/commit/cc703ed33d535aa1803e423a53beff9354b5b0df))
+* Update windows-rs to 0.44 ([#220](https://github.com/DataTriny/accesskit/issues/220)) ([a6b0a12](https://github.com/DataTriny/accesskit/commit/a6b0a124e7511e37760d769b517fd5fc9050160b))
+* Use common filters across platform adapters ([#287](https://github.com/DataTriny/accesskit/issues/287)) ([09c1204](https://github.com/DataTriny/accesskit/commit/09c12045ff4ccdb22f0cf643077a27465013572d))
+
+
+### Miscellaneous Chores
+
+* Update winit to 0.28 ([#207](https://github.com/DataTriny/accesskit/issues/207)) ([3ff0cf5](https://github.com/DataTriny/accesskit/commit/3ff0cf59f982af504499142a3804f7aeeb4defe0))
+
+
+### Code Refactoring
+
+* Clean up roles and properties ([#289](https://github.com/DataTriny/accesskit/issues/289)) ([4fc9c55](https://github.com/DataTriny/accesskit/commit/4fc9c55c91812472593923d93ff89d75ff305ee4))
+* Decouple in-tree focus from host window/view focus ([#278](https://github.com/DataTriny/accesskit/issues/278)) ([d360d20](https://github.com/DataTriny/accesskit/commit/d360d20cf951e7643b81a5303006c9f7daa5bd56))
+* Make `ActionHandler::do_action` take `&mut self` ([#296](https://github.com/DataTriny/accesskit/issues/296)) ([4fc7846](https://github.com/DataTriny/accesskit/commit/4fc7846d732d61fb45c023060ebab96801a0053e))
+* Make `Node` opaque and optimize it for size ([#205](https://github.com/DataTriny/accesskit/issues/205)) ([4811152](https://github.com/DataTriny/accesskit/commit/48111521439b76c1a8687418a4b20f9b705eac6d))
+* Move lazy initialization from the core platform adapter to the caller ([#179](https://github.com/DataTriny/accesskit/issues/179)) ([f35c941](https://github.com/DataTriny/accesskit/commit/f35c941f395f3162db376a69cfaaaf770d376267))
+* Move thread synchronization into platform adapters; drop parking_lot ([#212](https://github.com/DataTriny/accesskit/issues/212)) ([5df52e5](https://github.com/DataTriny/accesskit/commit/5df52e5545faddf6a51905409013c2f5be23981e))
+* Switch to simple unsigned 64-bit integer for node IDs ([#276](https://github.com/DataTriny/accesskit/issues/276)) ([3eadd48](https://github.com/DataTriny/accesskit/commit/3eadd48ec47854faa94a94ebf910ec08f514642f))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * accesskit bumped from 0.12.2 to 0.8.1
+    * accesskit_consumer bumped from 0.17.0 to 0.18.0
+
 ## [0.16.0](https://github.com/AccessKit/accesskit/compare/accesskit_windows-v0.15.1...accesskit_windows-v0.16.0) (2024-01-03)
 
 

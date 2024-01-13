@@ -1,5 +1,27 @@
 # Changelog
 
+## [0.2.0](https://github.com/DataTriny/accesskit/compare/accesskit_python-v0.1.1...accesskit_python-v0.2.0) (2024-01-13)
+
+
+### Features
+
+* Add Python bindings ([#269](https://github.com/DataTriny/accesskit/issues/269)) ([52560da](https://github.com/DataTriny/accesskit/commit/52560da1c1480f1a37a27906b24b518a5fa03249))
+
+
+### Bug Fixes
+
+* Decrease minimum Python version to 3.8 for Python bindings ([#334](https://github.com/DataTriny/accesskit/issues/334)) ([3725373](https://github.com/DataTriny/accesskit/commit/3725373658bf2475cf3e1341b2e5fcefada576bd))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * accesskit bumped from 0.12.2 to 0.8.1
+    * accesskit_windows bumped from 0.16.0 to 0.17.0
+    * accesskit_macos bumped from 0.11.0 to 0.12.0
+    * accesskit_unix bumped from 0.7.0 to 0.8.0
+
 ## [0.1.1](https://github.com/AccessKit/accesskit/compare/accesskit_python-v0.1.0...accesskit_python-v0.1.1) (2024-01-06)
 
 

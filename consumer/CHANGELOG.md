@@ -16,6 +16,81 @@
   * dependencies
     * accesskit bumped from 0.11.1 to 0.11.2
 
+## [0.19.0](https://github.com/DataTriny/accesskit/compare/accesskit_consumer-v0.18.0...accesskit_consumer-v0.19.0) (2024-01-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* Allow providing app_name, toolkit_name and toolkit_version in Tree, remove parameters from unix adapter constructor ([#291](https://github.com/DataTriny/accesskit/issues/291))
+* Clean up roles and properties ([#289](https://github.com/DataTriny/accesskit/issues/289))
+* Drop `Tree::root_scroller` ([#279](https://github.com/DataTriny/accesskit/issues/279))
+* Decouple in-tree focus from host window/view focus ([#278](https://github.com/DataTriny/accesskit/issues/278))
+* Switch to simple unsigned 64-bit integer for node IDs ([#276](https://github.com/DataTriny/accesskit/issues/276))
+* Force a semver-breaking version bump in downstream crates ([#234](https://github.com/DataTriny/accesskit/issues/234))
+* Move thread synchronization into platform adapters; drop parking_lot ([#212](https://github.com/DataTriny/accesskit/issues/212))
+* Make `Node` opaque and optimize it for size ([#205](https://github.com/DataTriny/accesskit/issues/205))
+* **consumer:** Eliminate the dependency on `im` due to licensing ([#153](https://github.com/DataTriny/accesskit/issues/153))
+* Text range support ([#145](https://github.com/DataTriny/accesskit/issues/145))
+* Drop the `ignored` field and implement generic filtered tree traversal ([#143](https://github.com/DataTriny/accesskit/issues/143))
+* **consumer:** Optimize tree access and change handling ([#134](https://github.com/DataTriny/accesskit/issues/134))
+* Wrap `TreeUpdate` nodes in `Arc` ([#135](https://github.com/DataTriny/accesskit/issues/135))
+* **consumer:** Make `Node::data` private to the crate ([#137](https://github.com/DataTriny/accesskit/issues/137))
+* Store node ID in `TreeUpdate`, not `accesskit::Node` ([#132](https://github.com/DataTriny/accesskit/issues/132))
+* Basic live regions ([#128](https://github.com/DataTriny/accesskit/issues/128))
+* String indices are always in UTF-8 code units ([#114](https://github.com/DataTriny/accesskit/issues/114))
+* Drop unused tree IDs ([#113](https://github.com/DataTriny/accesskit/issues/113))
+* Switch to NonZeroU128 for NodeIDs ([#99](https://github.com/DataTriny/accesskit/issues/99))
+* Drop `TreeUpdate::clear` ([#96](https://github.com/DataTriny/accesskit/issues/96))
+
+### Features
+
+* Add role for terminals ([#282](https://github.com/DataTriny/accesskit/issues/282)) ([ddbef37](https://github.com/DataTriny/accesskit/commit/ddbef37158b57f56217317b480e40d58f83a9c24))
+* Allow providing app_name, toolkit_name and toolkit_version in Tree, remove parameters from unix adapter constructor ([#291](https://github.com/DataTriny/accesskit/issues/291)) ([5313860](https://github.com/DataTriny/accesskit/commit/531386023257150f49b5e4be942f359855fb7cb6))
+* Automatically get button and link labels from descendants ([#184](https://github.com/DataTriny/accesskit/issues/184)) ([ec5c38e](https://github.com/DataTriny/accesskit/commit/ec5c38ef3001a10b7a135df1438901246463f3e1))
+* Basic live regions ([#128](https://github.com/DataTriny/accesskit/issues/128)) ([03d745b](https://github.com/DataTriny/accesskit/commit/03d745b891147175bde2693cc10b96a2f6e31f39))
+* Basic Unix platform adapter ([#198](https://github.com/DataTriny/accesskit/issues/198)) ([1cea32e](https://github.com/DataTriny/accesskit/commit/1cea32e44ee743b778ac941ceff9087ae745cb37))
+* **platforms/macos:** Basic macOS platform adapter ([#158](https://github.com/DataTriny/accesskit/issues/158)) ([a06725e](https://github.com/DataTriny/accesskit/commit/a06725e952e6041dbd366944fa793b746c9f195e))
+* Support custom role descriptions ([#316](https://github.com/DataTriny/accesskit/issues/316)) ([c8d1a56](https://github.com/DataTriny/accesskit/commit/c8d1a5638fa6c33adfa059815c04f7e043c56026))
+* Text range support ([#145](https://github.com/DataTriny/accesskit/issues/145)) ([455e6f7](https://github.com/DataTriny/accesskit/commit/455e6f73bc058644d299c06eeeda9cc4cbe8844f))
+* Text support on macOS ([#191](https://github.com/DataTriny/accesskit/issues/191)) ([3a35dbe](https://github.com/DataTriny/accesskit/commit/3a35dbe02122c789fe682995c5b7e022aef5cc36))
+
+
+### Bug Fixes
+
+* Add missing semicolons when not returning anything ([#303](https://github.com/DataTriny/accesskit/issues/303)) ([38d4de1](https://github.com/DataTriny/accesskit/commit/38d4de1442247e701047d75122a9638a2ed99b1f))
+* **consumer, platforms/windows, platforms/winit:** Update to parking_lot 0.12.1 ([#146](https://github.com/DataTriny/accesskit/issues/146)) ([6772855](https://github.com/DataTriny/accesskit/commit/6772855a7b540fd728faad15d8d208b05c1bbd8a))
+* **consumer, platforms/windows:** Resolve new clippy warning ([#100](https://github.com/DataTriny/accesskit/issues/100)) ([e8cd95c](https://github.com/DataTriny/accesskit/commit/e8cd95c3741b39b77e4ddc8ce82efdc20f93f096))
+* **consumer:** Allow editable spin buttons ([#167](https://github.com/DataTriny/accesskit/issues/167)) ([65a7aa0](https://github.com/DataTriny/accesskit/commit/65a7aa0114bfc6e17189e834578e256945b84a98))
+* **consumer:** Drop printing of detached nodes before panic ([#136](https://github.com/DataTriny/accesskit/issues/136)) ([2f20477](https://github.com/DataTriny/accesskit/commit/2f204772a97d4e21205609f31f3e84bc878554cd))
+* Don't try to optimize tree updates with unchanged nodes ([#138](https://github.com/DataTriny/accesskit/issues/138)) ([7721719](https://github.com/DataTriny/accesskit/commit/7721719fb0ab90bf41cc30dd0469c7de90228fe9))
+* Drop `Tree::root_scroller` ([#279](https://github.com/DataTriny/accesskit/issues/279)) ([fc6c4e0](https://github.com/DataTriny/accesskit/commit/fc6c4e0091d5b257a3869a468fca144a1453cebc))
+* Force a semver-breaking version bump in downstream crates ([#234](https://github.com/DataTriny/accesskit/issues/234)) ([773389b](https://github.com/DataTriny/accesskit/commit/773389bff857fa18edf15de426e029251fc34591))
+* Gracefully handle nodes that only support text ranges some of the time ([#169](https://github.com/DataTriny/accesskit/issues/169)) ([1f50df6](https://github.com/DataTriny/accesskit/commit/1f50df6820b9d23fe2e579f043f4981acf285de2))
+* Make `Node::filtered_parent` recursive as it was meant to be ([#203](https://github.com/DataTriny/accesskit/issues/203)) ([d2faef5](https://github.com/DataTriny/accesskit/commit/d2faef5a2ad61b9e4d3f3d5c89570cdeec6fe6e6))
+* Migrate to 2021 edition ([#115](https://github.com/DataTriny/accesskit/issues/115)) ([f2333c8](https://github.com/DataTriny/accesskit/commit/f2333c8ce17d46aab6fc190338ab4cfcf8569f9e))
+* More reliable handling of the edge case for wrapped lines ([#192](https://github.com/DataTriny/accesskit/issues/192)) ([c626d2c](https://github.com/DataTriny/accesskit/commit/c626d2c3028085b076ada7dd31242cf3ca3c0f08))
+* Support text fields without a value property ([#274](https://github.com/DataTriny/accesskit/issues/274)) ([5ae557b](https://github.com/DataTriny/accesskit/commit/5ae557b40d395b4a9966a90a2d80e7d97ad50bf9))
+* Switch to NonZeroU128 for NodeIDs ([#99](https://github.com/DataTriny/accesskit/issues/99)) ([25a1a52](https://github.com/DataTriny/accesskit/commit/25a1a52c4562b163bfcc8c625a233c00a41aacf2))
+* Use common filters across platform adapters ([#287](https://github.com/DataTriny/accesskit/issues/287)) ([09c1204](https://github.com/DataTriny/accesskit/commit/09c12045ff4ccdb22f0cf643077a27465013572d))
+
+
+### Code Refactoring
+
+* Clean up roles and properties ([#289](https://github.com/DataTriny/accesskit/issues/289)) ([4fc9c55](https://github.com/DataTriny/accesskit/commit/4fc9c55c91812472593923d93ff89d75ff305ee4))
+* **consumer:** Eliminate the dependency on `im` due to licensing ([#153](https://github.com/DataTriny/accesskit/issues/153)) ([b4c4cb5](https://github.com/DataTriny/accesskit/commit/b4c4cb5713d4833d8ee7979e4f4e39c7e96a3ed4))
+* **consumer:** Make `Node::data` private to the crate ([#137](https://github.com/DataTriny/accesskit/issues/137)) ([adb372d](https://github.com/DataTriny/accesskit/commit/adb372dda78d183c7189966e3bbc2d3780070513))
+* **consumer:** Optimize tree access and change handling ([#134](https://github.com/DataTriny/accesskit/issues/134)) ([765ab74](https://github.com/DataTriny/accesskit/commit/765ab74efcf10a3b3871dc901d28f3cf1ff6020c))
+* Decouple in-tree focus from host window/view focus ([#278](https://github.com/DataTriny/accesskit/issues/278)) ([d360d20](https://github.com/DataTriny/accesskit/commit/d360d20cf951e7643b81a5303006c9f7daa5bd56))
+* Drop `TreeUpdate::clear` ([#96](https://github.com/DataTriny/accesskit/issues/96)) ([38f520b](https://github.com/DataTriny/accesskit/commit/38f520b960c6db7b3927b369aee206ee6bc5e8aa))
+* Drop the `ignored` field and implement generic filtered tree traversal ([#143](https://github.com/DataTriny/accesskit/issues/143)) ([a4befe6](https://github.com/DataTriny/accesskit/commit/a4befe6e8a5afbe4a52dfd09eb87fdf2078d6c1d))
+* Drop unused tree IDs ([#113](https://github.com/DataTriny/accesskit/issues/113)) ([ca60770](https://github.com/DataTriny/accesskit/commit/ca607702cee13c93fe538d2faec88e474261f7ab))
+* Make `Node` opaque and optimize it for size ([#205](https://github.com/DataTriny/accesskit/issues/205)) ([4811152](https://github.com/DataTriny/accesskit/commit/48111521439b76c1a8687418a4b20f9b705eac6d))
+* Move thread synchronization into platform adapters; drop parking_lot ([#212](https://github.com/DataTriny/accesskit/issues/212)) ([5df52e5](https://github.com/DataTriny/accesskit/commit/5df52e5545faddf6a51905409013c2f5be23981e))
+* Store node ID in `TreeUpdate`, not `accesskit::Node` ([#132](https://github.com/DataTriny/accesskit/issues/132)) ([0bb86dd](https://github.com/DataTriny/accesskit/commit/0bb86ddb298cb5a253a91f07be0bad8b84b2fda3))
+* String indices are always in UTF-8 code units ([#114](https://github.com/DataTriny/accesskit/issues/114)) ([386ca0a](https://github.com/DataTriny/accesskit/commit/386ca0a89c42fd201843f617b2fd6b6d1de77f59))
+* Switch to simple unsigned 64-bit integer for node IDs ([#276](https://github.com/DataTriny/accesskit/issues/276)) ([3eadd48](https://github.com/DataTriny/accesskit/commit/3eadd48ec47854faa94a94ebf910ec08f514642f))
+* Wrap `TreeUpdate` nodes in `Arc` ([#135](https://github.com/DataTriny/accesskit/issues/135)) ([907bc18](https://github.com/DataTriny/accesskit/commit/907bc1820b80d95833b6c5c3acaa2a8a4e93a6c2))
+
 ## [0.18.0](https://github.com/DataTriny/accesskit/compare/accesskit_consumer-v0.17.0...accesskit_consumer-v0.18.0) (2024-01-13)
 
 

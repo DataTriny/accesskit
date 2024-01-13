@@ -73,6 +73,100 @@
   * dependencies
     * accesskit_windows bumped from 0.14.2 to 0.14.3
 
+## [0.20.0](https://github.com/DataTriny/accesskit/compare/accesskit_winit-v0.19.0...accesskit_winit-v0.20.0) (2024-01-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* Lazily activate Unix adapters ([#324](https://github.com/DataTriny/accesskit/issues/324))
+* Remove `accesskit_winit::Adapter::update` ([#325](https://github.com/DataTriny/accesskit/issues/325))
+* Force a semver break for the winit rwh feature additions ([#322](https://github.com/DataTriny/accesskit/issues/322))
+* Rename `accesskit_winit::Adapter::on_event` to `process_event` ([#307](https://github.com/DataTriny/accesskit/issues/307))
+* Bump winit to 0.29 ([#256](https://github.com/DataTriny/accesskit/issues/256))
+* Allow providing app_name, toolkit_name and toolkit_version in Tree, remove parameters from unix adapter constructor ([#291](https://github.com/DataTriny/accesskit/issues/291))
+* Make `ActionHandler::do_action` take `&mut self` ([#296](https://github.com/DataTriny/accesskit/issues/296))
+* Decouple in-tree focus from host window/view focus ([#278](https://github.com/DataTriny/accesskit/issues/278))
+* Switch to simple unsigned 64-bit integer for node IDs ([#276](https://github.com/DataTriny/accesskit/issues/276))
+* Force a semver-breaking version bump in downstream crates ([#234](https://github.com/DataTriny/accesskit/issues/234))
+* Move thread synchronization into platform adapters; drop parking_lot ([#212](https://github.com/DataTriny/accesskit/issues/212))
+* Make `Node` opaque and optimize it for size ([#205](https://github.com/DataTriny/accesskit/issues/205))
+* Update winit to 0.28 ([#207](https://github.com/DataTriny/accesskit/issues/207))
+* Move lazy initialization from the core platform adapter to the caller ([#179](https://github.com/DataTriny/accesskit/issues/179))
+* **platforms/windows:** Update to windows-rs 0.42.0 ([#148](https://github.com/DataTriny/accesskit/issues/148))
+* Wrap `TreeUpdate` nodes in `Arc` ([#135](https://github.com/DataTriny/accesskit/issues/135))
+* Store node ID in `TreeUpdate`, not `accesskit::Node` ([#132](https://github.com/DataTriny/accesskit/issues/132))
+* Basic live regions ([#128](https://github.com/DataTriny/accesskit/issues/128))
+* **platforms/windows:** Bump windows-rs dependency ([#126](https://github.com/DataTriny/accesskit/issues/126))
+* **platforms/winit:** Bump winit dependency ([#125](https://github.com/DataTriny/accesskit/issues/125))
+
+### deps
+
+* Bump winit to 0.29 ([#256](https://github.com/DataTriny/accesskit/issues/256)) ([4eb21ff](https://github.com/DataTriny/accesskit/commit/4eb21ff64256fcf0a16ab831554b06b80de9b36e))
+
+
+### Features
+
+* Add features for async runtimes on Unix ([#248](https://github.com/DataTriny/accesskit/issues/248)) ([b56b4ea](https://github.com/DataTriny/accesskit/commit/b56b4ea7c967ee5a1dae21a2fa0dcd385346031e))
+* Allow providing app_name, toolkit_name and toolkit_version in Tree, remove parameters from unix adapter constructor ([#291](https://github.com/DataTriny/accesskit/issues/291)) ([5313860](https://github.com/DataTriny/accesskit/commit/531386023257150f49b5e4be942f359855fb7cb6))
+* Basic live regions ([#128](https://github.com/DataTriny/accesskit/issues/128)) ([03d745b](https://github.com/DataTriny/accesskit/commit/03d745b891147175bde2693cc10b96a2f6e31f39))
+* Basic Unix platform adapter ([#198](https://github.com/DataTriny/accesskit/issues/198)) ([1cea32e](https://github.com/DataTriny/accesskit/commit/1cea32e44ee743b778ac941ceff9087ae745cb37))
+* Feature-gate the Unix adapter in accesskit_winit ([#214](https://github.com/DataTriny/accesskit/issues/214)) ([be95807](https://github.com/DataTriny/accesskit/commit/be95807dda64f2a49b4d20cc9084b14a7aa2844e))
+* **platforms/macos:** Basic macOS platform adapter ([#158](https://github.com/DataTriny/accesskit/issues/158)) ([a06725e](https://github.com/DataTriny/accesskit/commit/a06725e952e6041dbd366944fa793b746c9f195e))
+* **platforms/winit:** Allow a custom action handler ([#149](https://github.com/DataTriny/accesskit/issues/149)) ([cdb1a16](https://github.com/DataTriny/accesskit/commit/cdb1a164de06f18cad497409a514f270a8336b4c))
+* **platforms/winit:** New winit adapter ([#121](https://github.com/DataTriny/accesskit/issues/121)) ([fdc274e](https://github.com/DataTriny/accesskit/commit/fdc274e7d3a901873d2ad0c7a4824a19111787ef))
+
+
+### Bug Fixes
+
+* Account for window decorations when `accesskit_winit::Adapter::process_event` receives a resizing event on Unix ([#312](https://github.com/DataTriny/accesskit/issues/312)) ([e2b264c](https://github.com/DataTriny/accesskit/commit/e2b264c2e5b0fb699576f2ece905509c38ffc9be))
+* Add a `rwh_05` feature flag to `accesskit_winit` ([#319](https://github.com/DataTriny/accesskit/issues/319)) ([f4d279c](https://github.com/DataTriny/accesskit/commit/f4d279c5ece16df2925c0e31dc82eaf192c40cd0))
+* Add missing semicolons when not returning anything ([#303](https://github.com/DataTriny/accesskit/issues/303)) ([38d4de1](https://github.com/DataTriny/accesskit/commit/38d4de1442247e701047d75122a9638a2ed99b1f))
+* **consumer, platforms/windows, platforms/winit:** Update to parking_lot 0.12.1 ([#146](https://github.com/DataTriny/accesskit/issues/146)) ([6772855](https://github.com/DataTriny/accesskit/commit/6772855a7b540fd728faad15d8d208b05c1bbd8a))
+* Don't force winit's X11 and Wayland features to be enabled ([#209](https://github.com/DataTriny/accesskit/issues/209)) ([a3ed357](https://github.com/DataTriny/accesskit/commit/a3ed35754ad8f69a8ed54adacc30b6d57c19329a))
+* Fix doc build for accesskit_winit ([#281](https://github.com/DataTriny/accesskit/issues/281)) ([e3b38b8](https://github.com/DataTriny/accesskit/commit/e3b38b8164d0c5442a5a1904165e2b05847376c2))
+* Force a semver break for the winit rwh feature additions ([#322](https://github.com/DataTriny/accesskit/issues/322)) ([61acdb0](https://github.com/DataTriny/accesskit/commit/61acdb0ea083263c88a00ad4db637b25863852c0))
+* Force a semver-breaking version bump in downstream crates ([#234](https://github.com/DataTriny/accesskit/issues/234)) ([773389b](https://github.com/DataTriny/accesskit/commit/773389bff857fa18edf15de426e029251fc34591))
+* Lazily activate Unix adapters ([#324](https://github.com/DataTriny/accesskit/issues/324)) ([54ed036](https://github.com/DataTriny/accesskit/commit/54ed036c99d87428a8eb5bb03fd77e9e31562d4c))
+* **platforms/macos:** Fix macOS crate version number ([#161](https://github.com/DataTriny/accesskit/issues/161)) ([e0a6a40](https://github.com/DataTriny/accesskit/commit/e0a6a401050cdcaea4efa870ed77ae94388f1ce0))
+* **platforms/windows:** Re-export the windows-rs HWND type ([#159](https://github.com/DataTriny/accesskit/issues/159)) ([389187a](https://github.com/DataTriny/accesskit/commit/389187ac5e96895ed1763d14d315d2f8f4256460))
+* **platforms/windows:** Update to windows-rs 0.42.0 ([#148](https://github.com/DataTriny/accesskit/issues/148)) ([70d1a89](https://github.com/DataTriny/accesskit/commit/70d1a89f51fd6c3a32b7192d9d7f3937db09d196))
+* **platforms/winit:** Derive `Debug` on `ActionRequestEvent` ([#141](https://github.com/DataTriny/accesskit/issues/141)) ([8b84c75](https://github.com/DataTriny/accesskit/commit/8b84c7547c6fdb52cd6d5c6d79f812dc614f08dd))
+* **platforms/winit:** Eliminate some problematic indirect dependencies ([#154](https://github.com/DataTriny/accesskit/issues/154)) ([58048ae](https://github.com/DataTriny/accesskit/commit/58048aebedc293eda5c5819ea66db9b40b8926b0))
+* Reduce the winit version requirement to match egui ([#170](https://github.com/DataTriny/accesskit/issues/170)) ([1d27482](https://github.com/DataTriny/accesskit/commit/1d27482221140c1f3b3e3eaf93e7feaf8105611d))
+* Remove `accesskit_winit::Adapter::update` ([#325](https://github.com/DataTriny/accesskit/issues/325)) ([f121bff](https://github.com/DataTriny/accesskit/commit/f121bffe9e651fd2ac6deb882f57e1c9b613b7eb))
+* Run our own async executor on Unix ([#337](https://github.com/DataTriny/accesskit/issues/337)) ([8f937ba](https://github.com/DataTriny/accesskit/commit/8f937baaa510dd96da196501822b82f75f05b595))
+* Show an error at compile-time if no raw-window-handle feature is enabled for the winit adapter ([#339](https://github.com/DataTriny/accesskit/issues/339)) ([a24f5fd](https://github.com/DataTriny/accesskit/commit/a24f5fd443a683a6194b54244052ff3e1cc05de6))
+* Use raw-window-handle 0.6 ([#310](https://github.com/DataTriny/accesskit/issues/310)) ([3fa69ab](https://github.com/DataTriny/accesskit/commit/3fa69ab4d9216b51b651d3cf2a9c8217a77069f4))
+
+
+### Miscellaneous Chores
+
+* **platforms/windows:** Bump windows-rs dependency ([#126](https://github.com/DataTriny/accesskit/issues/126)) ([472a75e](https://github.com/DataTriny/accesskit/commit/472a75e4214b90396f3282f247df08100ed8362d))
+* **platforms/winit:** Bump winit dependency ([#125](https://github.com/DataTriny/accesskit/issues/125)) ([6026c1b](https://github.com/DataTriny/accesskit/commit/6026c1b2ecede3ca2f2076075ed158000154b34e))
+* Update winit to 0.28 ([#207](https://github.com/DataTriny/accesskit/issues/207)) ([3ff0cf5](https://github.com/DataTriny/accesskit/commit/3ff0cf59f982af504499142a3804f7aeeb4defe0))
+
+
+### Code Refactoring
+
+* Decouple in-tree focus from host window/view focus ([#278](https://github.com/DataTriny/accesskit/issues/278)) ([d360d20](https://github.com/DataTriny/accesskit/commit/d360d20cf951e7643b81a5303006c9f7daa5bd56))
+* Make `ActionHandler::do_action` take `&mut self` ([#296](https://github.com/DataTriny/accesskit/issues/296)) ([4fc7846](https://github.com/DataTriny/accesskit/commit/4fc7846d732d61fb45c023060ebab96801a0053e))
+* Make `Node` opaque and optimize it for size ([#205](https://github.com/DataTriny/accesskit/issues/205)) ([4811152](https://github.com/DataTriny/accesskit/commit/48111521439b76c1a8687418a4b20f9b705eac6d))
+* Move lazy initialization from the core platform adapter to the caller ([#179](https://github.com/DataTriny/accesskit/issues/179)) ([f35c941](https://github.com/DataTriny/accesskit/commit/f35c941f395f3162db376a69cfaaaf770d376267))
+* Move thread synchronization into platform adapters; drop parking_lot ([#212](https://github.com/DataTriny/accesskit/issues/212)) ([5df52e5](https://github.com/DataTriny/accesskit/commit/5df52e5545faddf6a51905409013c2f5be23981e))
+* Rename `accesskit_winit::Adapter::on_event` to `process_event` ([#307](https://github.com/DataTriny/accesskit/issues/307)) ([6fbebde](https://github.com/DataTriny/accesskit/commit/6fbebdeb9d1e96b1776ed1faf7ad21d9cc0a68df))
+* Store node ID in `TreeUpdate`, not `accesskit::Node` ([#132](https://github.com/DataTriny/accesskit/issues/132)) ([0bb86dd](https://github.com/DataTriny/accesskit/commit/0bb86ddb298cb5a253a91f07be0bad8b84b2fda3))
+* Switch to simple unsigned 64-bit integer for node IDs ([#276](https://github.com/DataTriny/accesskit/issues/276)) ([3eadd48](https://github.com/DataTriny/accesskit/commit/3eadd48ec47854faa94a94ebf910ec08f514642f))
+* Wrap `TreeUpdate` nodes in `Arc` ([#135](https://github.com/DataTriny/accesskit/issues/135)) ([907bc18](https://github.com/DataTriny/accesskit/commit/907bc1820b80d95833b6c5c3acaa2a8a4e93a6c2))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * accesskit_windows bumped from 0.17.0 to 0.18.0
+    * accesskit_macos bumped from 0.12.0 to 0.1.0
+    * accesskit_unix bumped from 0.8.0 to 0.9.0
+
 ## [0.19.0](https://github.com/DataTriny/accesskit/compare/accesskit_winit-v0.18.1...accesskit_winit-v0.19.0) (2024-01-13)
 
 

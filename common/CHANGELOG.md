@@ -1,5 +1,54 @@
 # Changelog
 
+## [0.8.1](https://github.com/DataTriny/accesskit/compare/accesskit-v0.12.2...accesskit-v0.8.1) (2024-01-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* Allow providing app_name, toolkit_name and toolkit_version in Tree, remove parameters from unix adapter constructor ([#291](https://github.com/DataTriny/accesskit/issues/291))
+* Make `ActionHandler::do_action` take `&mut self` ([#296](https://github.com/DataTriny/accesskit/issues/296))
+* Clean up roles and properties ([#289](https://github.com/DataTriny/accesskit/issues/289))
+* Drop next/previous focus properties ([#288](https://github.com/DataTriny/accesskit/issues/288))
+* Drop `Tree::root_scroller` ([#279](https://github.com/DataTriny/accesskit/issues/279))
+* Decouple in-tree focus from host window/view focus ([#278](https://github.com/DataTriny/accesskit/issues/278))
+* Switch to simple unsigned 64-bit integer for node IDs ([#276](https://github.com/DataTriny/accesskit/issues/276))
+* Move thread synchronization into platform adapters; drop parking_lot ([#212](https://github.com/DataTriny/accesskit/issues/212))
+* Make `Node` opaque and optimize it for size ([#205](https://github.com/DataTriny/accesskit/issues/205))
+
+### Features
+
+* Add C bindings ([#230](https://github.com/DataTriny/accesskit/issues/230)) ([7f7f4c7](https://github.com/DataTriny/accesskit/commit/7f7f4c755890ab8210a5a8bf8e237ba6a51dd205))
+* Add role for terminals ([#282](https://github.com/DataTriny/accesskit/issues/282)) ([ddbef37](https://github.com/DataTriny/accesskit/commit/ddbef37158b57f56217317b480e40d58f83a9c24))
+* Allow providing app_name, toolkit_name and toolkit_version in Tree, remove parameters from unix adapter constructor ([#291](https://github.com/DataTriny/accesskit/issues/291)) ([5313860](https://github.com/DataTriny/accesskit/commit/531386023257150f49b5e4be942f359855fb7cb6))
+
+
+### Bug Fixes
+
+* Add missing semicolons when not returning anything ([#303](https://github.com/DataTriny/accesskit/issues/303)) ([38d4de1](https://github.com/DataTriny/accesskit/commit/38d4de1442247e701047d75122a9638a2ed99b1f))
+* Bump pyo3; add `rename_all` attribute to enums ([#330](https://github.com/DataTriny/accesskit/issues/330)) ([5a4c6f3](https://github.com/DataTriny/accesskit/commit/5a4c6f399837d67b066451a8fb4d43d03c8acb8b))
+* Document the `role_description` node property ([#331](https://github.com/DataTriny/accesskit/issues/331)) ([936fa2c](https://github.com/DataTriny/accesskit/commit/936fa2c23190c5d7cd4eb880612295785a009721))
+* Drop `Tree::root_scroller` ([#279](https://github.com/DataTriny/accesskit/issues/279)) ([fc6c4e0](https://github.com/DataTriny/accesskit/commit/fc6c4e0091d5b257a3869a468fca144a1453cebc))
+* Drop next/previous focus properties ([#288](https://github.com/DataTriny/accesskit/issues/288)) ([d35c7c1](https://github.com/DataTriny/accesskit/commit/d35c7c149a650dfedf1b031c0668adad585659fa))
+* Fix broken intra-doc-link. ([#262](https://github.com/DataTriny/accesskit/issues/262)) ([63c1715](https://github.com/DataTriny/accesskit/commit/63c17152d1eb8ae6ff19c2bc4a6756372bc490c2))
+* Set appropriate representations on all public types that will be exposed via FFI ([54e82f6](https://github.com/DataTriny/accesskit/commit/54e82f673f5c7b46d9077fe5f946305800862bf0))
+* Support the enumn crate in all public enums ([#264](https://github.com/DataTriny/accesskit/issues/264)) ([b9b3cd1](https://github.com/DataTriny/accesskit/commit/b9b3cd18fccdd6526fb4f58c13eb91599452a3d6))
+* Support the pyo3 crate in all public enums ([#270](https://github.com/DataTriny/accesskit/issues/270)) ([9b12d0c](https://github.com/DataTriny/accesskit/commit/9b12d0c3d828d4c847510b611d891872c4666984))
+
+
+### Documentation
+
+* Fix outdated documentation for `TreeUpdate` ([#182](https://github.com/DataTriny/accesskit/issues/182)) ([dd658c7](https://github.com/DataTriny/accesskit/commit/dd658c70df55b2234a0346220362b0b9a40bb41d))
+
+
+### Code Refactoring
+
+* Clean up roles and properties ([#289](https://github.com/DataTriny/accesskit/issues/289)) ([4fc9c55](https://github.com/DataTriny/accesskit/commit/4fc9c55c91812472593923d93ff89d75ff305ee4))
+* Decouple in-tree focus from host window/view focus ([#278](https://github.com/DataTriny/accesskit/issues/278)) ([d360d20](https://github.com/DataTriny/accesskit/commit/d360d20cf951e7643b81a5303006c9f7daa5bd56))
+* Make `ActionHandler::do_action` take `&mut self` ([#296](https://github.com/DataTriny/accesskit/issues/296)) ([4fc7846](https://github.com/DataTriny/accesskit/commit/4fc7846d732d61fb45c023060ebab96801a0053e))
+* Make `Node` opaque and optimize it for size ([#205](https://github.com/DataTriny/accesskit/issues/205)) ([4811152](https://github.com/DataTriny/accesskit/commit/48111521439b76c1a8687418a4b20f9b705eac6d))
+* Move thread synchronization into platform adapters; drop parking_lot ([#212](https://github.com/DataTriny/accesskit/issues/212)) ([5df52e5](https://github.com/DataTriny/accesskit/commit/5df52e5545faddf6a51905409013c2f5be23981e))
+* Switch to simple unsigned 64-bit integer for node IDs ([#276](https://github.com/DataTriny/accesskit/issues/276)) ([3eadd48](https://github.com/DataTriny/accesskit/commit/3eadd48ec47854faa94a94ebf910ec08f514642f))
+
 ## [0.12.2](https://github.com/AccessKit/accesskit/compare/accesskit-v0.12.1...accesskit-v0.12.2) (2024-01-03)
 
 
